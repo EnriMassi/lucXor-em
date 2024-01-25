@@ -787,10 +787,10 @@ public class globals {
                 intensityAL = new ArrayList<Double>();
 			}
 			
+			// Scan title used to be "filename.scannum.scannum.charge"
 			if(line.startsWith("TITLE=")) {
-				int i = line.indexOf(".") + 1;
-				int j = line.indexOf(".", i);
-				String s = line.substring(i,j);
+				line = line.replaceAll("\r", "").replaceAll("\n", "");
+				String s = line.split("scan=")[1];
 				scanNum = Integer.valueOf(s);
 			}
 			
